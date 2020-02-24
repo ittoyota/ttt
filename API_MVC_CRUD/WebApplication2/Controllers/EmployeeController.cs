@@ -14,9 +14,22 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             IEnumerable<mvcEmployeeModel> emplist;
-            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
-            emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
+            HttpResponseMessage response;
+            if (Session["ROLENAME"].ToString()=="Admin")
+            {
+                response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
+                emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
             return View(emplist);
+            }
+            else
+            {
+
+                response = GlobalVariables.WebApiClient.GetAsync("Employees/" + Session["EMPLOYEEIDAccount"].ToString()).Result;
+                mvcEmployeeModel ee=response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
+                return View(ee);
+            }
+
+
         }
         public ActionResult AddOrEdit(int id = 0)
         {
@@ -67,20 +80,20 @@ namespace WebApplication2.Controllers
             {
 
                 HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("Account", emp).Result;
-                var a = response.Content.ReadAsStringAsync();
-                string b = response.Content.ReadAsStringAsync().Result;
-                mvcEmployeeModel ee= response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
+                // var a = response.Content.ReadAsStringAsync();
+                // string b = response.Content.ReadAsStringAsync().Result;
+                mvcEmployeeModel ee = response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
 
-                if (a.Result.ToString().Trim() == "0")
+                if (ee.USERNAME == "" && ee.USERPASSWORD == "")
                 {
                     TempData["Invalid"] = "Username or Password is invalid please try with correct username or password";
                     return View();
                 }
                 else
                 {
-                    //Session["EMPLOYEEIDAccount"]=a.Result.
-                    //Session["NAME"]
-                    //Session["ROLENAME"]
+                    Session["EMPLOYEEIDAccount"] = ee.EMPLOYEEID;
+                    Session["NAME"] = ee.NAME;
+                    Session["ROLENAME"] = ee.ROLENAME;
                     //TempData["SuccessUpdate"] = "Updated Successfully";
                     return RedirectToAction("Index", "Employee");
 
