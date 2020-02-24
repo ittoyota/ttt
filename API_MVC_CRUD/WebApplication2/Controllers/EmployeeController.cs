@@ -69,6 +69,7 @@ namespace WebApplication2.Controllers
                 HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("Account", emp).Result;
                 var a = response.Content.ReadAsStringAsync();
                 string b = response.Content.ReadAsStringAsync().Result;
+                mvcEmployeeModel ee= response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
 
                 if (a.Result.ToString().Trim() == "0")
                 {
