@@ -66,8 +66,10 @@ namespace WebApplication2.Controllers
             else
             {
 
-                HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("api/Employees/GetUserLogin", emp).Result;
+                HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("Account", emp).Result;
                 var a = response.Content.ReadAsStringAsync();
+                string b = response.Content.ReadAsStringAsync().Result;
+
                 if (a.Result.ToString().Trim() == "0")
                 {
                     TempData["Invalid"] = "Username or Password is invalid please try with correct username or password";
@@ -75,6 +77,9 @@ namespace WebApplication2.Controllers
                 }
                 else
                 {
+                    //Session["EMPLOYEEIDAccount"]=a.Result.
+                    //Session["NAME"]
+                    //Session["ROLENAME"]
                     //TempData["SuccessUpdate"] = "Updated Successfully";
                     return RedirectToAction("Index", "Employee");
 

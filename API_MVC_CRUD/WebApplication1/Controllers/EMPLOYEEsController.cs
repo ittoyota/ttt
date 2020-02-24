@@ -33,19 +33,7 @@ namespace WebApplication1.Controllers
             }
 
             return Ok(eMPLOYEE);
-        }
-        // GET: api/EMPLOYEEs/5
-        [ResponseType(typeof(EMPLOYEE))]
-        public IHttpActionResult GetUserLogin(EMPLOYEE emp)
-        {
-            EMPLOYEE eMPLOYEE = db.EMPLOYEEs.Where(x=>x.USERNAME== emp.USERNAME && x.USERPASSWORD==emp.USERPASSWORD).FirstOrDefault();
-            if (eMPLOYEE == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(eMPLOYEE);
-        }
+        }       
         // PUT: api/EMPLOYEEs/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEMPLOYEE(int id, EMPLOYEE eMPLOYEE)

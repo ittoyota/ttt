@@ -30,3 +30,35 @@ c:\users\administrator\documents\visual studio 2015\Projects\API_MVC_CRUD\WebApp
 c:\users\administrator\documents\visual studio 2015\Projects\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.dll
 c:\users\administrator\documents\visual studio 2015\Projects\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.pdb
 c:\users\administrator\documents\visual studio 2015\Projects\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\csc.exe
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\vbc.exe
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\WebApplication1.dll.config
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\WebApplication1.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\WebApplication1.pdb
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\EntityFramework.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Net.Http.Formatting.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Web.Http.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Web.Http.WebHost.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\EntityFramework.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Net.Http.Formatting.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Web.Http.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\bin\System.Web.Http.WebHost.xml
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\Administrator\Documents\GitHub\ttt\API_MVC_CRUD\WebApplication1\obj\Debug\WebApplication1.pdb
