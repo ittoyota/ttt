@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebApplication2.Models.mvcEmployeeModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+@if (TempData["SuccessInsert"] != null)
+{
+    <div class="alert alert-success">
+        <strong>@TempData["SuccessInsert"]!</strong>
+    </div>
+}
+else if (TempData["SuccessUpdate"] != null)
+{
+    <div class="alert alert-success">
+        <strong>@TempData["SuccessUpdate"]!</strong>
+    </div>
+}
+else if (TempData["SuccessDelete"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>@TempData["SuccessDelete"]!</strong>
+    </div>
+}
+
+
+
+
+<br />
+<p>
+   <a href="@Url.Action("AddOrEdit","Employee")" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EMPLOYEEID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.POSITION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AGE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SALARY)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEEID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POSITION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALARY)
+        </td>
+        <td>
+            <a href="@Url.Action("AddOrEdit","Employee", new {id=item.EMPLOYEEID })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Delete","Employee", new {id=item.EMPLOYEEID })" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
