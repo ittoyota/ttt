@@ -14,20 +14,21 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             IEnumerable<mvcEmployeeModel> emplist;
+            // mvcEmployeeModel ee;
             HttpResponseMessage response;
-            if (Session["ROLENAME"].ToString()=="Admin")
-            {
-                response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
-                emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
+            //if (Session["ROLENAME"].ToString()=="Admin")
+            //{
+            response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
+            emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
             return View(emplist);
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                response = GlobalVariables.WebApiClient.GetAsync("Employees/" + Session["EMPLOYEEIDAccount"].ToString()).Result;
-                mvcEmployeeModel ee=response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
-                return View(ee);
-            }
+            //    response = GlobalVariables.WebApiClient.GetAsync("Employees/" + Session["EMPLOYEEID"].ToString()).Result;
+            //    ee = response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
+            //    return View(ee);
+            //}
 
 
         }
@@ -91,7 +92,7 @@ namespace WebApplication2.Controllers
                 }
                 else
                 {
-                    Session["EMPLOYEEIDAccount"] = ee.EMPLOYEEID;
+                    Session["EMPLOYEEID"] = ee.EMPLOYEEID;
                     Session["NAME"] = ee.NAME;
                     Session["ROLENAME"] = ee.ROLENAME;
                     //TempData["SuccessUpdate"] = "Updated Successfully";

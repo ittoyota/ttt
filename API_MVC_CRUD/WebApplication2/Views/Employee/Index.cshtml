@@ -53,28 +53,59 @@ else if (TempData["SuccessDelete"] != null)
         </tr>
     </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPLOYEEID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.POSITION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AGE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SALARY)
-        </td>
-        <td>
-            <a href="@Url.Action("AddOrEdit","Employee", new {id=item.EMPLOYEEID })" class="btn btn-primary">Edit</a>
-            <a href="@Url.Action("Delete","Employee", new {id=item.EMPLOYEEID })" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    if (item.ROLENAME == "User")
+    {
+        if (Convert.ToInt32(Session["EMPLOYEEID"]) == item.EMPLOYEEID)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPLOYEEID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POSITION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SALARY)
+            </td>
+            <td>
+                <a href="@Url.Action("AddOrEdit", "Employee", new { id = item.EMPLOYEEID })" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Delete", "Employee", new { id = item.EMPLOYEEID })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMPLOYEEID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POSITION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AGE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SALARY)
+            </td>
+            <td>
+                <a href="@Url.Action("AddOrEdit","Employee", new {id=item.EMPLOYEEID })" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Delete","Employee", new {id=item.EMPLOYEEID })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
 }
 
 </table>
