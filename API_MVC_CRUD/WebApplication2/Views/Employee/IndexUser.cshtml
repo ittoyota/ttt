@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebApplication2.Models.mvcEmployeeModel>
+﻿@model WebApplication2.Models.mvcEmployeeModel
 
 @{
     ViewBag.Title = "Index";
@@ -23,9 +23,6 @@ else if (TempData["SuccessDelete"] != null)
         <strong>@TempData["SuccessDelete"]!</strong>
     </div>
 }
-
-
-
 
 <br />
 <p>
@@ -52,30 +49,27 @@ else if (TempData["SuccessDelete"] != null)
             <th>Action</th>
         </tr>
     </thead>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EMPLOYEEID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.POSITION)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AGE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SALARY)
-            </td>
-            <td>
-                <a href="@Url.Action("AddOrEdit", "Employee", new { id = item.EMPLOYEEID })" class="btn btn-primary">Edit</a>
-                <a href="@Url.Action("Delete", "Employee", new { id = item.EMPLOYEEID })" class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-    }
+    <tr>
+        <td>
+            @Model.EMPLOYEEID
+        </td>
+        <td>
+            @Model.NAME
+        </td>
+        <td>
+            @Model.POSITION
+        </td>
+        <td>
+            @Model.AGE
+        </td>
+        <td>
+            @Model.SALARY
+        </td>
+        <td>
+            <a href="@Url.Action("AddOrEdit", "Employee", new { id = Model.EMPLOYEEID })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Delete", "Employee", new { id = Model.EMPLOYEEID })" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
 
 </table>
+

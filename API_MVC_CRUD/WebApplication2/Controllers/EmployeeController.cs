@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
@@ -13,24 +14,31 @@ namespace WebApplication2.Controllers
         // GET: Employee
         public ActionResult Index()
         {
+            if (Session["EMPLOYEEID"] == null)
+            {
+                return RedirectToAction("LoginUser");
+            }
             IEnumerable<mvcEmployeeModel> emplist;
-            // mvcEmployeeModel ee;
+            mvcEmployeeModel ee;
             HttpResponseMessage response;
-            //if (Session["ROLENAME"].ToString()=="Admin")
-            //{
-            response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
-            emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
-            return View(emplist);
-            //}
-            //else
-            //{
+            if (Session["ROLENAME"].ToString() == "Admin")
+            {
+                response = GlobalVariables.WebApiClient.GetAsync("Employees").Result;
+                emplist = response.Content.ReadAsAsync<IEnumerable<mvcEmployeeModel>>().Result;
+                return View(emplist);
+            }
+            else
+            {
+                response = GlobalVariables.WebApiClient.GetAsync("Employees/" + Session["EMPLOYEEID"].ToString()).Result;
+                ee = response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
+                return View("IndexUser", ee);
+            }
 
-            //    response = GlobalVariables.WebApiClient.GetAsync("Employees/" + Session["EMPLOYEEID"].ToString()).Result;
-            //    ee = response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
-            //    return View(ee);
-            //}
 
-
+        }
+        public ActionResult IndexUser()
+        {
+            return View();
         }
         public ActionResult AddOrEdit(int id = 0)
         {
@@ -79,13 +87,10 @@ namespace WebApplication2.Controllers
             }
             else
             {
-
                 HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("Account", emp).Result;
-                // var a = response.Content.ReadAsStringAsync();
-                // string b = response.Content.ReadAsStringAsync().Result;
                 mvcEmployeeModel ee = response.Content.ReadAsAsync<mvcEmployeeModel>().Result;
 
-                if (ee.USERNAME == "" && ee.USERPASSWORD == "")
+                if (ee==null)
                 {
                     TempData["Invalid"] = "Username or Password is invalid please try with correct username or password";
                     return View();
@@ -95,11 +100,16 @@ namespace WebApplication2.Controllers
                     Session["EMPLOYEEID"] = ee.EMPLOYEEID;
                     Session["NAME"] = ee.NAME;
                     Session["ROLENAME"] = ee.ROLENAME;
-                    //TempData["SuccessUpdate"] = "Updated Successfully";
                     return RedirectToAction("Index", "Employee");
 
                 }
             }
+        }
+        public ActionResult LogOffUser()
+        {
+            Session.Abandon();
+            Session.Clear();
+            return RedirectToAction("LoginUser", "Employee");
         }
 
     }
